@@ -100,7 +100,7 @@ h1 {
 	margin: 0 1dvw;
 }
 
-@media ( max-width : 375px) {
+@media ( max-width : 450px) {
 	.cabecalho a {
 		font-size: 1.2rem;
 	}
@@ -141,7 +141,7 @@ h1 {
     transform: scale(0.9);
 }
 
-@media ( max-width : 375px) {
+@media ( max-width : 450px) {
 	.carrossel-track img {
 		max-width: 100vw;
 	}
@@ -187,7 +187,7 @@ to {
 		drop-shadow(0 0 25px #bd00ff);
 }
 
-@media ( max-width : 375px) {
+@media ( max-width : 450px) {
 	.frente {
 		height: 40vh;
 	}
@@ -246,7 +246,7 @@ to {
 		drop-shadow(0 0 25px #bd00ff);
 }
 
-@media ( max-width : 375px) {
+@media ( max-width : 450px) {
 	.conteudo {
 		flex-direction: column;
 	}
@@ -314,7 +314,7 @@ form .sinopse {
     resize: vertical;
 }
 
-@media ( max-width : 375px) {
+@media ( max-width : 450px) {
 	form {
 		height: max-content;
 		width: 98%;
@@ -338,7 +338,7 @@ form .sinopse {
 	gap: 5px;
 }
 
-@media ( max-width : 375px) {
+@media ( max-width : 450px) {
 	.lista {
 		width: 99%;
 	}
@@ -461,7 +461,7 @@ form .sinopse {
 }
 
 /* CELULAR */
-@media ( max-width : 375px) {
+@media ( max-width : 450px) {
 	
 }
 

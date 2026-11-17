@@ -4,28 +4,55 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DAO {
-	/** Módulo de conexão **/
-	// Parâmetros de conexão
-	private String driver = "com.mysql.cj.jdbc.Driver";
-	private String url = "jdbc:mysql://127.0.0.1:3306/catalogo?useTimezone=true&serverTimezone=UTC";
-	private String user = "root";
-	private String password = "Rcab@6841";
 
-	// Método de conexão
-	private Connection conectar() {
-		Connection con = null;
-		try {
-			Class.forName(driver);
-			con = DriverManager.getConnection(url, user, password);
-			return con;
-		} catch (Exception e) {
-			System.out.println(e);
-			return null;
-		}
-	}
+
+private Connection conectar() {
+    try {
+        String host = System.getenv("DB_HOST");
+        String port = System.getenv("DB_PORT");
+        String database = System.getenv("DB_NAME");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
+
+        // Verificar variáveis
+        System.out.println("===== CONEXÃO MYSQL =====");
+        System.out.println("HOST: " + host);
+        System.out.println("PORT: " + port);
+        System.out.println("DATABASE: " + database);
+        System.out.println("USER: " + user);
+        System.out.println("=========================");
+
+        if (host == null || port == null ||
+            database == null || user == null ||
+            password == null) {
+            throw new RuntimeException(
+                "Uma ou mais variáveis DB_ não foram configuradas."
+            );
+        }
+
+        String url = "jdbc:mysql://" + host + ":" + port
+                + "/" + database
+                + "?useTimezone=true&serverTimezone=UTC";
+
+        Class.forName("com.mysql.cj.jdbc.Driver");
+
+        Connection con = DriverManager.getConnection(
+            url, user, password
+        );
+
+        System.out.println("MYSQL CONECTADO COM SUCESSO!");
+
+        return con;
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        throw new RuntimeException("Erro ao conectar ao banco", e);
+    }
+}
 
 	// CRUD CREATE
 	public void inserirMidia(JavaBeans midia) {
@@ -43,7 +70,7 @@ public class DAO {
 			pst.setString(5, midia.getTipo());
 			pst.setString(6, midia.getSinopse());
 			pst.setString(7, midia.getImagem());
-			
+
 			// Executar a query
 			pst.executeUpdate();
 			// Encerrar a conexão com o banco
@@ -75,7 +102,7 @@ public class DAO {
 				String tipo = rs.getString(6);
 				String sinopse = rs.getString(7);
 				String imagem = rs.getString(8);
-				
+
 				// populando o ArrayList
 				midia.add(new JavaBeans(id, nome, genero, autor, Integer.parseInt(ano), tipo, sinopse, imagem));
 			}
@@ -107,7 +134,7 @@ public class DAO {
 				String tipo = rs.getString("tipo");
 				String sinopse = rs.getString("sinopse");
 				String imagem = rs.getString("imagem");
-				
+
 				// populando o ArrayList
 				midia = new JavaBeans(id, nome, genero, autor, Integer.parseInt(ano), tipo, sinopse, imagem);
 			}
@@ -118,36 +145,39 @@ public class DAO {
 			return null;
 		}
 	}
-		
+
 	public ArrayList<JavaBeans> listarImagens() {
-	    ArrayList<JavaBeans> lista = new ArrayList<>();
 
-	    String sql = "SELECT id, nome, imagem FROM midia "
-	               + "WHERE imagem IS NOT NULL AND imagem <> ''";
+		ArrayList<JavaBeans> lista = new ArrayList<>();
 
-	    try {
-	        Connection con = conectar();
-	        PreparedStatement stmt = con.prepareStatement(sql);
-	        ResultSet rs = stmt.executeQuery();
+		String sql = "SELECT id, nome, imagem FROM midia " + "WHERE imagem IS NOT NULL AND imagem <> ''";
 
-	        while (rs.next()) {
-	            JavaBeans m = new JavaBeans();
+		try (Connection con = conectar();
 
-	            m.setId(rs.getString("id"));
-	            m.setNome(rs.getString("nome"));
-	            m.setImagem(rs.getString("imagem"));
+		) {
 
-	            lista.add(m);
-	        }
+			if (con == null) {
+				throw new SQLException("Não foi possível conectar ao MySQL.");
+			}
 
-	        rs.close();
-	        stmt.close();
-	        con.close();
+			try (PreparedStatement stmt = con.prepareStatement(sql); ResultSet rs = stmt.executeQuery()) {
 
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	    }
+				while (rs.next()) {
 
-	    return lista;
+					JavaBeans m = new JavaBeans();
+
+					m.setId(rs.getString("id"));
+					m.setNome(rs.getString("nome"));
+					m.setImagem(rs.getString("imagem"));
+
+					lista.add(m);
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return lista;
 	}
 }
