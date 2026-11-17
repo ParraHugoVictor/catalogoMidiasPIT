@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1.0">
+<title>Set Mídias</title>
+<link rel="icon" href="imagens/logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div class="cabecalho">
+			<a href="index"><img src="imagens/logo.png"></a> <a href="main">Início</a>
+			<a href="cadastro" class="active">Nova Mídia</a> <a href="contatos">Contatos</a>
+		</div>
+
+		<div class="formulario">
+			<form name="formMidia" action="cadastrar" method="post">
+			<h1>Adicionar nova mídia</h1>
+				<table>
+					<tr>
+						<td><input type="text" name="nome" placeholder="Nome"></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="genero" placeholder="Gênero"></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="autor" placeholder="Autor"></td>
+					</tr>
+					<tr>
+						<td><select name="ano" id="ano" required>
+								<option value="" selected hidden="hidden">Selecione o
+									ano</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td><select id="tipo" name="tipo" required>
+								<option value="" selected hidden="hidden">Selecione o
+									tipo de mídia</option>
+								<option value="Livro">Livro</option>
+								<option value="Filme">Filme</option>
+								<option value="Serie">Série</option>
+						</select></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="sinopse" class="sinopse"
+							placeholder="Sinópse"></td>
+					</tr>
+					<tr>
+						<td><input type="url" name="imagem"
+							placeholder="Link da imagem de capa"></td>
+					</tr>
+				</table>
+
+				<script>
+					const selectAno = document.getElementById("ano");
+
+					for (let ano = 2026; ano >= 1500; ano--) {
+						const opcao = document.createElement("option");
+						opcao.value = ano;
+						opcao.textContent = ano;
+						selectAno.appendChild(opcao);
+					}
+				</script>
+
+				<input type="submit" value="Adicionar" class="botao"
+					onclick="return validar()">
+
+			</form>
+
+			<script src="scripts/validador.js"></script>
+		</div>
+	</div>
+</body>
+</html>
