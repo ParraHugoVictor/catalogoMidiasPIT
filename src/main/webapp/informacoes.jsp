@@ -31,7 +31,7 @@ JavaBeans midia = (JavaBeans) request.getAttribute("midia");
 				<table>
 					<tbody>
 						<tr>
-							<td class="td1">Nome</td>
+							<td> class="td1">Nome</td>
 							<td><%=midia.getNome()%></td>
 						</tr>
 						

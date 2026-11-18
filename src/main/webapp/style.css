@@ -100,7 +100,7 @@ h1 {
 	margin: 0 1dvw;
 }
 
-@media (orientation: portrait) {
+@media screen and (orientation: portrait) {
 	.cabecalho a {
 		font-size: 1.2rem;
 	}
@@ -141,7 +141,7 @@ h1 {
     transform: scale(0.9);
 }
 
-@media (orientation: portrait) {
+@media screen and (orientation: portrait) {
 	.carrossel-track img {
 		max-width: 100vw;
 	}
@@ -187,7 +187,7 @@ to {
 		drop-shadow(0 0 25px #bd00ff);
 }
 
-@media (orientation: portrait) {
+@media screen and (orientation: portrait) {
 	.frente {
 		width: 90vw;
 		height: 50vh;
@@ -253,13 +253,13 @@ to {
 		drop-shadow(0 0 25px #bd00ff);
 }
 
-@media (orientation: portrait) {
+@media screen and (orientation: portrait) {
 	.conteudo {
 		flex-direction: column;
 	}
 	.botao-efeito {
 		border-radius: 15vw;
-		height: 30%;
+		height: 25vh;
 	}
 }
 
@@ -321,7 +321,7 @@ form .sinopse {
     resize: vertical;
 }
 
-@media (orientation: portrait) {
+@media screen and (orientation: portrait) {
 	form {
 		height: max-content;
 		width: 98%;
@@ -345,7 +345,7 @@ form .sinopse {
 	gap: 5px;
 }
 
-@media (orientation: portrait) {
+@media screen and (orientation: portrait) {
 	.lista {
 		width: 99%;
 	}
@@ -468,7 +468,7 @@ form .sinopse {
 }
 
 /* CELULAR */
-@media (orientation: portrait) {
+@media screen and (orientation: portrait) {
 	
 }
 
