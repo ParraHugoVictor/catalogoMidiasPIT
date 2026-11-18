@@ -10,7 +10,7 @@ ArrayList<JavaBeans> lista = (ArrayList<JavaBeans>) request.getAttribute("midia"
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8" name="viewport"
-	content="width=device-width, initial-scale=1.0">
+	content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Set Mídias</title>
 <link rel="icon" href="imagens/logo.png">
 <link rel="stylesheet" href="style.css">
