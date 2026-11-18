@@ -12,8 +12,9 @@ JavaBeans midia = (JavaBeans) request.getAttribute("midia");
 <head>
 <meta charset="UTF-8" name="viewport"
 	content="width=device-width, initial-scale=1.0">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Set <%=midia.getNome()%></title>
+<meta charset="UTF-8" name="viewport"
+	content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title><%=midia.getNome()%></title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>

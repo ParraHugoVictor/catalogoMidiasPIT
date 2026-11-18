@@ -100,7 +100,7 @@ h1 {
 	margin: 0 1dvw;
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-aspect-ratio: 1/1) {
 	.cabecalho a {
 		font-size: 1.2rem;
 	}
@@ -141,7 +141,7 @@ h1 {
     transform: scale(0.9);
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-aspect-ratio: 1/1) {
 	.carrossel-track img {
 		max-width: 100vw;
 	}
@@ -187,7 +187,7 @@ to {
 		drop-shadow(0 0 25px #bd00ff);
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-aspect-ratio: 1/1) {
 	.frente {
 		width: 90vw;
 		height: 50vh;
@@ -253,7 +253,7 @@ to {
 		drop-shadow(0 0 25px #bd00ff);
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-aspect-ratio: 1/1) {
 	.conteudo {
 		flex-direction: column;
 	}
@@ -321,7 +321,7 @@ form .sinopse {
     resize: vertical;
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-aspect-ratio: 1/1) {
 	form {
 		height: max-content;
 		width: 98%;
@@ -345,7 +345,7 @@ form .sinopse {
 	gap: 5px;
 }
 
-@media screen and (orientation: portrait) {
+@media screen and (max-aspect-ratio: 1/1) {
 	.lista {
 		width: 99%;
 	}
@@ -468,7 +468,7 @@ form .sinopse {
 }
 
 /* CELULAR */
-@media screen and (orientation: portrait) {
+@media screen and (max-aspect-ratio: 1/1) {
 	
 }
 
