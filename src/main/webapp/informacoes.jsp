@@ -31,6 +31,11 @@ JavaBeans midia = (JavaBeans) request.getAttribute("midia");
 				<table>
 					<tbody>
 						<tr>
+							<td class="td1">Nome</td>
+							<td><%=midia.getNome()%></td>
+						</tr>
+						
+						<tr>
 							<td class="td1">Gênero</td>
 							<td><%=midia.getGenero()%></td>
 						</tr>
