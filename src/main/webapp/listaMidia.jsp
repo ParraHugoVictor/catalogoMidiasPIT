@@ -25,7 +25,7 @@ if ("Livro".equals(tipoSelecionado)) {
 <meta charset="UTF-8" name="viewport"
 	content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <link rel="icon" href="imagens/logo.png">
-<title>Set <%=titulo%></title>
+<title><%=titulo%></title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>

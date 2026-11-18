@@ -13,7 +13,7 @@ import model.DAO;
 import model.JavaBeans;
 
 @WebServlet(urlPatterns = { "/Controller", "/main", "/listaMidia", "/cadastro", "/novaMidia", "/cadastrar",
-		"/informacoes", "/index" })
+		"/informacoes", "/index", "/contatos" })
 
 public class Controller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -38,6 +38,8 @@ public class Controller extends HttpServlet {
 			informacoes(request, response);
 		} else if (action.equals("/index")) {
 			index(request, response);
+		} else if (action.equals("/contatos")) {
+			contatos(request, response);
 		} else {
 			response.sendRedirect("/main");
 		}
@@ -54,6 +56,11 @@ public class Controller extends HttpServlet {
 	protected void catalogo(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		RequestDispatcher rd = request.getRequestDispatcher("catalogo.jsp");
+		rd.forward(request, response);
+	}
+	
+	private void contatos(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("contatos.html");
 		rd.forward(request, response);
 	}
 
